@@ -1,10 +1,10 @@
 [project]
 name = "cnote-cli"
-version = "0.1.0"
-description = "A simple command line tool to create daily notes that you can edit with editor of your choice"
+version = "1.0.0"
+description = "A simple command line tool that allows you to manage your notes with your favorite code editor and terminal!"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = ["click>=8.1.8", "ipdb>=0.13.13"]
+dependencies = ["click>=8.1.8"]
 
 
 [build-system]
