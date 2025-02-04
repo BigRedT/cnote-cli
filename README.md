@@ -61,6 +61,8 @@ See the Usage section below for more details.
 
 - Make sure to run `source ~/.bashrc` or `source ~/.zshrc` to apply the changes.
 
+- Test the installation by running `cnote` which should print a welcome message.
+
 ## Usage
 
 All paths are relative to your `CNOTE_DIR` directory.
