@@ -84,3 +84,7 @@ All paths are relative to your `CNOTE_DIR` directory.
   cnote new --name projects/my_project
   ```
   This will create a new note in `./projects/` directory (created if it doesn't exist) with the name `my_project.md`. If `--name` is note provided it would create a new note with timestamp as the filename in`./` directory.
+
+## Pro Usage
+
+Code Notes CLI is built with Python using the awesome [click](https://click.palletsprojects.com/en/stable/) library. The entire code is in a single Python file (`cli.py`) and is under 200 lines of code. Need a new functionality or want to tweak the existing features to your liking? Simply fork this repository and add a new python function to implement your feature or update the existing ones in `cli.py`.
