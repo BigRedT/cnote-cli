@@ -1,7 +1,16 @@
 # Code Notes CLI
 
-A simple command line tool to manage your notes using your favourite code editor. If like me, you love your code editor and would like a simple light-weight tool to manage your notes, this is for you!
+A simple command line tool to manage your notes using your favourite code editor and terminal. If like me, you love your code editor and would like a simple light-weight tool to manage your notes, this is for you!
 
+## Why not just obsidian or some other note taking app?
+If you are a coder, you already have the perfect tool for editing markdown files - your code editor! After years of playing with several note taking apps, I have realized that all you need is the following:
+1. An easy way to create a new daily note (timestamped with today's date) for daily journaling
+2. A quick way to add a short note to your daily note from the terminal
+3. A handy way to open your notes directory in your code editor
+
+With these basic command line functions, you can simply use the powerful search and editing features of your favorite editor (like Zed or VSCode) to manage your notes!
+
+## Features
 
 ```
 Usage: cnote [OPTIONS] COMMAND [ARGS]...
@@ -22,6 +31,7 @@ Commands:
   zed        Open the notes directory in Zed
 ```
 
+See the Usage section below for more details.
 
 ## Installation
 
