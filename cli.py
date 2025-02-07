@@ -125,11 +125,10 @@ def newday(ctx, year, month, day):
 
 
 @cnote.command(help="Create a new note")
-@click.option(
-    "--name",
+@click.argument(
+    "name",
     type=str,
     default=datetime.datetime.now().strftime("%Y%m%d%H%M%S"),
-    help="Name of the note. Defaults to the current timestamp.",
 )
 @click.pass_context
 def new(ctx, name):
