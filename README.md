@@ -72,20 +72,23 @@ All paths are relative to your `CNOTE_DIR` directory.
   cnote today/yesterday/tomorrow
   ```
   This will create a markdown file with the day's date in `./daily/` and also create an easy to access symlink to the corresponding note in `./`.
+
 - To open the notes directory in VSCode or Zed, run:
   ```bash
   cnote vscode/zed
   ```
+
 - To add a quick note to today's note, run:
   ```bash
   cnote quick "Your quick note here"
   ```
   This will append the quick note to today's note with a timestamp.
+
 - Create a new note:
   ```bash
-  cnote new --name projects/my_project
+  cnote new projects/my_project
   ```
-  This will create a new note in `./projects/` directory (created if it doesn't exist) with the name `my_project.md`. If `--name` is note provided it would create a new note with timestamp as the filename in`./` directory.
+  This will create a new note in `./projects/` directory (created if it doesn't exist) with the name `my_project.md`. If name is not provided (so just `cnote new`) it would create a new note with timestamp as the filename in`./` directory.
 
 ## Pro Usage
 
