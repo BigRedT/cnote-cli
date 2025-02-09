@@ -19,16 +19,19 @@ Options:
   --help  Show this message and exit.
 
 Commands:
-  date       Prints the current date
-  new        Create a new note
-  newday     Create a new note for a specific date
-  quick      Add a quick note to today's note
-  rmdays     Remove the symlinks for today, yesterday, and tomorrow
-  today      Create a new note for today
-  tomorrow   Create a new note for tomorrow
-  vscode     Open the notes directory in VSCode
-  yesterday  Create a new note for yesterday
-  zed        Open the notes directory in Zed
+  date         Prints the current date
+  log          Create daily log
+  log-meeting  Create meeting log
+  log-project  Create project log
+  new          Create a new note
+  newday       Create a new note for a specific date
+  quick        Add a quick note to today's note
+  rmdays       Remove the symlinks for today, yesterday, and tomorrow
+  today        Create a new note for today
+  tomorrow     Create a new note for tomorrow
+  vscode       Open the notes directory in VSCode
+  yesterday    Create a new note for yesterday
+  zed          Open the notes directory in Zed
 ```
 
 See the Usage section below for more details.
@@ -89,6 +92,24 @@ All paths are relative to your `CNOTE_DIR` directory.
   cnote new projects/my_project
   ```
   This will create a new note in `./projects/` directory (created if it doesn't exist) with the name `my_project.md`. If name is not provided (so just `cnote new`) it would create a new note with timestamp as the filename in`./` directory.
+
+- Start a new meeting log:
+  ```bash
+  cnote log-meeting monday_standup
+  ```
+  This will create a new `./meetings/monday_standup.md` file if it doesn't exist and add a new heading with today's date. If the file already exists, and contains log entries from previous days, it will prepend a new heading with today's date where you can enter today's log entries.
+
+- Start a new project log:
+  ```bash
+    cnote log-project my_project
+  ```
+  This will create a new `./projects/my_project/log.md` file if it doesn't exist and add a new heading with today's date. If the file already exists, and contains log entries from previous days, it will prepend a new heading with today's date where you can enter today's log entries.
+
+- Start a new daily log in any directory:
+  ```bash
+    cnote log relative/path/to/directory
+  ```
+  Similar to `log-project`, this will create a new `./relative/path/to/directory/log.md` file but does so in a directory of your choice.
 
 ## Pro Usage
 
