@@ -95,9 +95,9 @@ All paths are relative to your `CNOTE_DIR` directory.
 
 - Start a new meeting log:
   ```bash
-  cnote log-meeting monday_standup
+  cnote log-meeting meeting_name
   ```
-  This will create a new `./meetings/monday_standup.md` file if it doesn't exist and add a new heading with today's date. If the file already exists, and contains log entries from previous days, it will prepend a new heading with today's date where you can enter today's log entries.
+  This will create a new `./meetings/meeting_name.md` file if it doesn't exist and add a new heading with today's date. If the file already exists, and contains log entries from previous days, it will prepend a new heading with today's date where you can enter today's log entries.
 
 - Start a new project log:
   ```bash
