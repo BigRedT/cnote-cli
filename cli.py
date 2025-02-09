@@ -138,8 +138,62 @@ def new(ctx, name):
     os.makedirs(dirpath, exist_ok=True)
     fname = os.path.basename(name)
     fpath = os.path.join(dirpath, f"{fname}.md")
-    os.system(f"touch {fpath}")
-    click.echo(f"Created note at {fpath}")
+    if os.path.exists(fpath):
+        click.echo(f"Note already exists at {fpath}")
+        ctx.exit(1)
+    else:
+        os.system(f"touch {fpath}")
+        click.echo(f"Created note at {fpath}")
+
+
+def create_log(cnote_dir, relative_dir_path, filename):
+    dirpath = os.path.join(cnote_dir, relative_dir_path)
+    os.makedirs(dirpath, exist_ok=True)
+    fpath = os.path.join(dirpath, f"{filename}.md")
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d")
+    if os.path.exists(fpath):
+        with open(fpath, "r+") as f:
+            content = f.read()
+            content = content.lstrip()
+            lines = content.splitlines()
+            today_str = f"# {timestamp}"
+            if not lines or not lines[0].startswith(today_str):
+                f.seek(0, 0)
+                f.write(f"{today_str}\n\n\n{content}")
+                click.echo(f"Today's log instantiated at {fpath}")
+            else:
+                click.echo(f"Today's log already exists at {fpath}")
+    else:
+        os.system(f"touch {fpath}")
+        click.echo(f"Created note at {fpath}")
+        with open(fpath, "w") as f:
+            f.write(f"# {datetime.datetime.now().strftime('%Y-%m-%d')}\n")
+            click.echo(f"Today's log instantiated at {fpath}")
+
+
+@cnote.command(help="Create daily log")
+@click.argument("relative_dir_path", type=str)
+@click.argument("filename", type=str, default="log")
+@click.pass_context
+def log(ctx, relative_dir_path, filename):
+    cnote_dir = ctx.obj["cnote_dir"]
+    create_log(cnote_dir, relative_dir_path, filename)
+
+
+@cnote.command(help="Create meeting log")
+@click.argument("meeting_name", type=str)
+@click.pass_context
+def log_meeting(ctx, meeting_name):
+    cnote_dir = ctx.obj["cnote_dir"]
+    create_log(cnote_dir, "meeting", meeting_name)
+
+
+@cnote.command(help="Create project log")
+@click.argument("project_name", type=str)
+@click.pass_context
+def log_project(ctx, project_name):
+    cnote_dir = ctx.obj["cnote_dir"]
+    create_log(cnote_dir, f"projects/{project_name}", "log")
 
 
 @cnote.command(help="Open the notes directory in Zed")
