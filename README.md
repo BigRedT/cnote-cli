@@ -101,15 +101,18 @@ All paths are relative to your `CNOTE_DIR` directory.
 
 - Start a new project log:
   ```bash
-    cnote log-project my_project
+  cnote log-project my_project
   ```
   This will create a new `./projects/my_project/log.md` file if it doesn't exist and add a new heading with today's date. If the file already exists, and contains log entries from previous days, it will prepend a new heading with today's date where you can enter today's log entries.
 
 - Start a new daily log in any directory:
   ```bash
-    cnote log relative/path/to/directory
+  cnote log relative/path/to/directory
   ```
-  Similar to `log-project`, this will create a new `./relative/path/to/directory/log.md` file but does so in a directory of your choice.
+  This will create a new `./relative/path/to/directory/log.md` file in a directory of your choice. In fact, `log-project` command above is equivalent to the following:
+  ```bash
+  cnote log projects/my_project
+  ```
 
 ## Pro Usage
 
