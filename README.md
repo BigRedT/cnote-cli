@@ -42,7 +42,7 @@ See the Usage section below for more details.
 
 - Clone this repository and run the following commands:
   ```bash
-  uv pip install -e .
+  uv sync
   ```
   This would generate the `cnote` binary at `./.venv/bin`
 
