@@ -21,8 +21,6 @@ Options:
 Commands:
   date         Prints the current date
   log          Create daily log
-  log-meeting  Create meeting log
-  log-project  Create project log
   new          Create a new note
   newday       Create a new note for a specific date
   quick        Add a quick note to today's note
@@ -93,26 +91,11 @@ All paths are relative to your `CNOTE_DIR` directory.
   ```
   This will create a new note in `./projects/` directory (created if it doesn't exist) with the name `my_project.md`. If name is not provided (so just `cnote new`) it would create a new note with timestamp as the filename in`./` directory.
 
-- Start a new meeting log:
+- Start a new daily log in any file:
   ```bash
-  cnote log-meeting meeting_name
+  cnote log relative/path/to/file.md
   ```
-  This will create a new `./meetings/meeting_name.md` file if it doesn't exist and add a new heading with today's date. If the file already exists, and contains log entries from previous days, it will prepend a new heading with today's date where you can enter today's log entries.
-
-- Start a new project log:
-  ```bash
-  cnote log-project my_project
-  ```
-  This will create a new `./projects/my_project/log.md` file if it doesn't exist and add a new heading with today's date. If the file already exists, and contains log entries from previous days, it will prepend a new heading with today's date where you can enter today's log entries.
-
-- Start a new daily log in any directory:
-  ```bash
-  cnote log relative/path/to/directory
-  ```
-  This will create a new `./relative/path/to/directory/log.md` file in a directory of your choice. In fact, `log-project` command above is equivalent to the following:
-  ```bash
-  cnote log projects/my_project
-  ```
+  This will create a new `./relative/path/to/file.md` file in a directory of your choice or just add a new date header if the file exists.
 
 ## Pro Usage
 
