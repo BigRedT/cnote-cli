@@ -172,28 +172,14 @@ def create_log(cnote_dir, relative_dir_path, filename):
 
 
 @cnote.command(help="Create daily log")
-@click.argument("relative_dir_path", type=str)
-@click.argument("filename", type=str, default="log")
+@click.argument("relative_file_path", type=str)
 @click.pass_context
-def log(ctx, relative_dir_path, filename):
+def log(ctx, relative_file_path):
     cnote_dir = ctx.obj["cnote_dir"]
-    create_log(cnote_dir, relative_dir_path, filename)
-
-
-@cnote.command(help="Create meeting log")
-@click.argument("meeting_name", type=str)
-@click.pass_context
-def log_meeting(ctx, meeting_name):
-    cnote_dir = ctx.obj["cnote_dir"]
-    create_log(cnote_dir, "meeting", meeting_name)
-
-
-@cnote.command(help="Create project log")
-@click.argument("project_name", type=str)
-@click.pass_context
-def log_project(ctx, project_name):
-    cnote_dir = ctx.obj["cnote_dir"]
-    create_log(cnote_dir, f"projects/{project_name}", "log")
+    dirname, filename = os.path.split(relative_file_path)
+    basename, extension = os.path.splitext(filename)
+    assert extension == ".md", "Did you forget .md in your filepath?"
+    create_log(cnote_dir, dirname, basename)
 
 
 @cnote.command(help="Open the notes directory in Zed")
